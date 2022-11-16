@@ -17,6 +17,7 @@ pipeline {
 			}
 		}
 	}
+<<<<<<< HEAD:jenkinsfile
 	post {
 			always {
 				echo 'building..'
@@ -29,3 +30,6 @@ pipeline {
 			}
 		}
 	}
+=======
+}
+>>>>>>> a5fb926370ce4d2ab7e41915a3fd507fb6b8e779:Jenkinsfile
