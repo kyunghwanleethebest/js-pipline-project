@@ -2,11 +2,21 @@ pipeline {
 	agent any
 	stages {
 		stage("build") {
+			when {
+				expression {
+					env.GIT_BRANCH == 'origin/master'
+				}
+			}
 			steps {
 				echo 'building the applicaiton...'
 			}
 		}
 		stage("test") {
+			when {
+				expression {
+					env.GIT_BRANCH == 'origin/test' || env.GIT_BRANCH == ''
+				}
+			}
 			steps {
 				echo 'testing the applicaiton...'
 			}
@@ -17,19 +27,4 @@ pipeline {
 			}
 		}
 	}
-<<<<<<< HEAD:jenkinsfile
-	post {
-			always {
-				echo 'building..'
-			}
-			success {
-	            echo 'success'
-			}
-			failure {
-	            echo 'failure'
-			}
-		}
-	}
-=======
 }
->>>>>>> a5fb926370ce4d2ab7e41915a3fd507fb6b8e779:Jenkinsfile
